@@ -1,7 +1,6 @@
 body {
     margin: 0px;
     width: 100%;
-    overflow: scroll;
     display: flex;
     align-content: center;
     justify-content: center;
@@ -18,15 +17,14 @@ body {
 
 .container {
     display: flex;
-    padding: 2rem 1rem 2rem 1rem;
+    padding-top: 2rem;
     flex-direction: column;
     width: clamp(900px, 60%, 2000px);
     border: 1px solid red;
     font-size: clamp(1.5em, 2.5vw, 3.5em);
-    gap: 4rem;
+    gap: 10rem;
     background-color: white;
     box-shadow: 0px 0px 10px #000000;
-    overflow: scroll;
 }
 
 /* Navbar Section */
@@ -34,18 +32,18 @@ nav {
   display: flex;
   padding-bottom: 2rem;
   gap: 5rem;
-  height: 40%;
 }
 
 .hero-img {
-    flex: 1 1 0;
+    flex: 0.75 1 0;
     padding: 1rem 1rem 1rem 1rem;
     background-color: white;
-    
+    aspect-ratio: 3 / 4.5;
+    border: 1px solid lightgray;
 }
 
 .hero-text {
-    flex: 1.75 1 0;
+    flex: 1.5 1 0;
     font-size: clamp(1.5rem, 2.25vw, 2rem);
     padding: 0px 1rem 0px 1rem;
     text-align: center;
@@ -55,6 +53,10 @@ nav {
 
 nav > p {
     margin-top: 5px;
+}
+
+.section-margin {
+    margin: 0rem 1rem 0rem 1rem;
 }
 
 /* Project Section */
@@ -114,16 +116,16 @@ li {
     flex-direction: column;
     background-color: white;
     color: black;
-    border: 1px inset #888888;
+    border: 1px solid lightgray;
     border-radius: 1rem 0px 1rem 0px;
-    animation: flyIn 0.75s ease-in-out 1 forwards;
+    animation: flyIn 0.5s ease-in-out 1 forwards;
     transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
 }
 
 @keyframes flyIn{
     from {
        opacity: 0%;
-       transform: translate(-100%, 0%); 
+       transform: translate(0%, -50%); 
     }
     
     to {
@@ -144,6 +146,28 @@ li {
 .card-info {
     flex: 1 1 0;
 }
+
+footer {
+    display: flex;
+    justify-content: center;
+    height: 600px;
+}
+
+.footer-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 60%;
+    border: 1px solid red;
+    gap: 1rem;
+}
+
+.footer-wrapper > * {
+    margin: 0px;
+    font-size: clamp(1.5rem, 2vw, 3rem);
+}
+
 /* Phone Styles */
 @media (max-width: 1000px) {
     .container{
@@ -152,6 +176,10 @@ li {
 
     ul {
         grid-template-columns: 1fr 1fr;
+    }
+
+    i {
+        font-size: 4rem;
     }
 }
 
@@ -180,5 +208,14 @@ li {
     li {
         width: 300px;
         align-self: center;
+    }
+
+    .footer-wrapper {
+        width: 100%;
+    }
+
+    .footer-wrapper > * {
+        font-size: clamp(2rem, 2vw, 3rem);
+        text-align: center;
     }
 }
