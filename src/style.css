@@ -1,35 +1,184 @@
 body {
     margin: 0px;
     width: 100%;
-    height: 100vh;
+    overflow: scroll;
     display: flex;
     align-content: center;
     justify-content: center;
+    background-color: rgb(235, 235, 235);
+}
+
+/* div {
+    border: 1px solid red;
+} */
+
+.box-shadow {
+    box-shadow: -6px 6px 6px #00000050;
 }
 
 .container {
-    position: relative;
     display: flex;
+    padding: 2rem 1rem 2rem 1rem;
     flex-direction: column;
-    justify-content: space-between;
     width: clamp(900px, 60%, 2000px);
     border: 1px solid red;
     font-size: clamp(1.5em, 2.5vw, 3.5em);
+    gap: 4rem;
+    background-color: white;
+    box-shadow: 0px 0px 10px #000000;
+    overflow: scroll;
 }
 
+/* Navbar Section */
 nav {
   display: flex;
-  flex-direction: column; 
-  padding: 0rem 1rem 0rem 1rem;
+  padding-bottom: 2rem;
+  gap: 5rem;
+  height: 40%;
+}
+
+.hero-img {
+    flex: 1 1 0;
+    padding: 1rem 1rem 1rem 1rem;
+    background-color: white;
+    
+}
+
+.hero-text {
+    flex: 1.75 1 0;
+    font-size: clamp(1.5rem, 2.25vw, 2rem);
+    padding: 0px 1rem 0px 1rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
 }
 
 nav > p {
     margin-top: 5px;
 }
 
+/* Project Section */
+.projects {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+h1 {
+    font-size: 2rem;
+    margin: 0px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Link underline animation */
+a {
+    padding-bottom: 4px;
+    background-image: linear-gradient(#000 0 0);
+    background-position: 0 100%;
+    background-size: 0% 4px;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s, background-position 0s 0.3s;
+}
+
+a:hover {
+    background-position: 100% 100%;
+    background-size: 100% 4px;
+}
+
+/* Project List */
+ul {
+    padding: 0px;
+    list-style: none;
+    display: grid;
+    margin: 0px;
+    row-gap: 4rem;
+    column-gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+}
+
+li {
+    width: clamp(250px, 100%, 400px);
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-self: center;
+}
+
+.card {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    color: black;
+    border: 1px inset #888888;
+    border-radius: 1rem 0px 1rem 0px;
+    animation: flyIn 0.75s ease-in-out 1 forwards;
+    transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+}
+
+@keyframes flyIn{
+    from {
+       opacity: 0%;
+       transform: translate(-100%, 0%); 
+    }
+    
+    to {
+        opacity: 100%;
+       transform: translate(0%, 0%); 
+    }
+}
+
+.card:hover {
+    background-color: #474747;
+    color: white;
+}
+
+.card-icon {
+    flex: 1.25 1 0;
+}
+
+.card-info {
+    flex: 1 1 0;
+}
 /* Phone Styles */
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
     .container{
         width: 100%;
+    }
+
+    ul {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+
+    nav {
+        flex-direction: column;
+    }
+
+    .hero-img {
+        flex:none;
+        height: 80vh;
+    }
+
+    /* Adjusting the project list */
+
+    .projects {
+        align-items: center;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+    li {
+        width: 300px;
+        align-self: center;
     }
 }
